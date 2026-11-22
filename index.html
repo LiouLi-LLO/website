@@ -1,108 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Personal Website | Electrical Engineering</title>
-<meta name="description" content="A personal website about electrical engineering: news, education, work and publications.">
-<style>
-:root{--bg:#fbfbf9;--card:#fff;--text:#1c2430;--muted:#5b6675;--line:#e4e7ec;--accent:#1f4e79;--soft:#eef3f8}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px;color-scheme:light}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
-.wrap{max-width:780px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;z-index:5;background:rgba(251,251,249,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:60px}
-.brand{font-weight:650;color:var(--text);white-space:nowrap}
-nav{display:flex;gap:20px;overflow-x:auto;font-size:15px}
-nav a{color:var(--muted);white-space:nowrap}
-nav a:hover{color:var(--accent);text-decoration:none}
-section{padding:48px 0 8px}
-h2{font-size:14px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.hero{display:grid;grid-template-columns:1fr 168px;gap:36px;align-items:center;padding-top:56px}
-h1{font-size:38px;line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
-.role{color:var(--muted);margin:0 0 18px}
-.avatar{width:168px;height:168px;border-radius:50%;background:var(--soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:600;color:var(--accent);overflow:hidden}
-.avatar img{width:100%;height:100%;object-fit:cover}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px;padding:0;list-style:none}
-.chips li{background:var(--soft);color:var(--accent);font-size:14px;padding:3px 12px;border-radius:999px}
-.links{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;padding:8px 18px;border:1px solid var(--accent);border-radius:6px;font-size:15px}
-.btn.primary{background:var(--accent);color:#fff}
-.btn:hover{text-decoration:none;opacity:.88}
-.row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:12px 0}
-.row+.row{border-top:1px solid var(--line)}
-.date{color:var(--muted);font-size:15px}
-.item h3{margin:0;font-size:17px}
-.item p{margin:2px 0 0;color:var(--muted);font-size:15.5px}
-.empty{background:var(--card);border:1px dashed #cdd3db;border-radius:8px;padding:18px 20px;color:var(--muted);margin:0}
-footer{margin-top:64px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:15px}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-@media (max-width: 640px) {
- body{font-size:16px}
- .hero{grid-template-columns:1fr;gap:24px}
- .avatar{order:-1;width:120px;height:120px;font-size:36px}
- h1{font-size:30px}
- .row{grid-template-columns:1fr;gap:2px}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="Engineering portfolio covering electrical engineering, robotics, mechanical design and research.">
+  <title>Liou Li — Engineering & Robotics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101820;
+      --panel: #17232d;
+      --panel-light: #1d2b36;
+      --text: #edf2f4;
+      --muted: #a2b0b9;
+      --line: rgba(225, 236, 241, .13);
+      --accent: #a8e0c2;
+      --accent-strong: #d2f4df;
+      --max: 1120px;
+      --mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
+      --sans: "Manrope", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      color: var(--accent);
+      font: 500 12px/1.4 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(16, 24, 32, .88);
+      backdrop-filter: blur(18px);
+    }
+    .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.04em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 34px; height: 34px;
+      border: 1px solid rgba(168, 224, 194, .55); color: var(--accent);
+      font: 500 12px var(--mono); border-radius: 9px;
+    }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 3vw, 34px); }
+    .nav-links a { color: var(--muted); font-size: 13px; font-weight: 600; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { color: var(--accent) !important; }
+
+    .hero { padding: clamp(76px, 11vw, 140px) 0 100px; position: relative; overflow: hidden; }
+    .hero::after {
+      content: ""; position: absolute; width: 520px; height: 520px; right: -190px; top: -160px;
+      border: 1px solid rgba(168, 224, 194, .12); border-radius: 50%;
+      box-shadow: 0 0 0 55px rgba(168, 224, 194, .025), 0 0 0 110px rgba(168, 224, 194, .018);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 70px; align-items: center; position: relative; z-index: 1; }
+    .hero h1 { margin: 22px 0 20px; max-width: 760px; font-size: clamp(44px, 7vw, 82px); line-height: 1.03; letter-spacing: -.065em; }
+    .hero h1 span { color: var(--accent); }
+    .hero-copy { max-width: 650px; color: var(--muted); font-size: clamp(16px, 1.7vw, 19px); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px;
+      border-radius: 7px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); border-color: rgba(168, 224, 194, .6); }
+    .button.primary { background: var(--accent); border-color: var(--accent); color: #102019; }
+    .button.primary:hover { background: var(--accent-strong); }
+    .hero-card {
+      min-height: 310px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
+      background: linear-gradient(145deg, rgba(168,224,194,.13), transparent 58%), var(--panel);
+      border: 1px solid var(--line); border-radius: 14px; position: relative;
+    }
+    .hero-card::before {
+      content: ""; position: absolute; inset: 12px; border: 1px dashed rgba(168,224,194,.22); border-radius: 9px; pointer-events: none;
+    }
+    .hero-card-top, .hero-card-bottom { position: relative; z-index: 1; }
+    .hero-card-symbol { font: 500 78px/1 var(--mono); color: var(--accent); letter-spacing: -.12em; }
+    .hero-card-title { font-size: 14px; font-weight: 800; }
+    .hero-card-caption { color: var(--muted); font: 11px var(--mono); margin-top: 4px; }
+
+    .focus-strip { border-block: 1px solid var(--line); background: rgba(255,255,255,.018); }
+    .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .focus-item { padding: 25px 28px 25px 0; }
+    .focus-item + .focus-item { padding-left: 28px; border-left: 1px solid var(--line); }
+    .focus-item strong { display: block; font-size: 14px; }
+    .focus-item span { color: var(--muted); font-size: 12px; }
+
+    section.content-section { padding: 104px 0 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
+    h2 { font-size: clamp(30px, 4vw, 42px); line-height: 1.15; letter-spacing: -.05em; margin: 10px 0 0; }
+    .section-intro { max-width: 460px; margin: 0; color: var(--muted); font-size: 14px; }
+
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 58px; }
+    .about-copy { color: var(--muted); max-width: 650px; }
+    .about-copy p:first-child { margin-top: 0; }
+    .principles { display: grid; gap: 12px; }
+    .principle { display: flex; gap: 16px; padding: 17px 18px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); }
+    .principle-number { color: var(--accent); font: 12px var(--mono); padding-top: 2px; }
+    .principle strong { display: block; font-size: 13px; }
+    .principle span { color: var(--muted); font-size: 12px; }
+
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card {
+      min-height: 220px; padding: 25px; border: 1px solid var(--line); border-radius: 11px;
+      background: var(--panel); display: flex; flex-direction: column; transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(168,224,194,.4); }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .card-index { color: var(--accent); font: 12px var(--mono); }
+    .tag { color: var(--muted); font: 10px var(--mono); border: 1px solid var(--line); padding: 5px 8px; border-radius: 4px; }
+    .card h3 { font-size: 19px; letter-spacing: -.03em; margin: 24px 0 8px; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .card-foot { margin-top: auto; padding-top: 24px; color: var(--accent); font: 11px var(--mono); }
+
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-row { display: grid; grid-template-columns: 170px 1fr; gap: 28px; padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .timeline-date { color: var(--accent); font: 11px var(--mono); padding-top: 4px; }
+    .timeline-body h3 { margin: 0; font-size: 16px; }
+    .timeline-body p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+
+    .contact-panel {
+      margin-top: 104px; padding: clamp(30px, 6vw, 58px); border: 1px solid rgba(168,224,194,.27);
+      border-radius: 14px; background: linear-gradient(125deg, rgba(168,224,194,.1), transparent 65%), var(--panel);
+      display: flex; align-items: center; justify-content: space-between; gap: 30px;
+    }
+    .contact-panel h2 { max-width: 530px; }
+    .contact-panel p { color: var(--muted); font-size: 13px; margin-bottom: 0; }
+    footer { margin-top: 100px; border-top: 1px solid var(--line); padding: 28px 0 38px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--muted); font: 10px var(--mono); }
+
+    @media (max-width: 800px) {
+      .hero-grid { grid-template-columns: 1fr 220px; gap: 30px; }
+      .hero-card { min-height: 260px; }
+      .about-grid { gap: 30px; }
+      .focus-item { padding-right: 16px; }
+      .focus-item + .focus-item { padding-left: 16px; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 36px, var(--max)); }
+      .nav-wrap { min-height: 68px; align-items: flex-start; padding-block: 15px; flex-direction: column; gap: 10px; }
+      .nav-links { width: 100%; overflow-x: auto; gap: 20px; padding-bottom: 2px; }
+      .nav-links a { white-space: nowrap; font-size: 12px; }
+      .hero { padding: 68px 0 70px; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero-card { min-height: 210px; max-width: 360px; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .focus-item, .focus-item + .focus-item { padding: 17px 0; border-left: 0; }
+      .focus-item + .focus-item { border-top: 1px solid var(--line); }
+      section.content-section { padding-top: 76px; }
+      .section-heading { display: block; }
+      .section-intro { margin-top: 14px; }
+      .cards { grid-template-columns: 1fr; }
+      .timeline-row { grid-template-columns: 1fr; gap: 7px; }
+      .contact-panel { display: block; margin-top: 76px; }
+      .contact-panel .button { margin-top: 24px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Liou Li home">
+        <span class="brand-mark">LL</span>
+        <span>Liou Li<span style="color:var(--accent)">.</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+        <a href="#projects">Projects</a>
+        <a href="#background">Background</a>
+        <a class="nav-cta" href="#contact">Get in touch ↗</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
- <div class="wrap">
-  <a class="brand" href="#about">Home</a>
-  <nav aria-label="Main">
-   <a href="#about">About</a>
-   <a href="#news">News</a>
-   <a href="#education">Education</a>
-   <a href="#work">Work</a>
-   <a href="#publications">Publications</a>
-  </nav>
- </div>
-</header>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Engineering · Robotics · Design</div>
+          <h1>Building ideas<br>into <span>real things.</span></h1>
+          <p class="hero-copy">I’m Liou Li, an electrical engineering student interested in the physical side of intelligent machines — from mechanisms and actuation to embedded systems and robotics.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">Explore my work <span aria-hidden="true">&nbsp;↗</span></a>
+            <a class="button" href="#contact">Contact</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Engineering focus">
+          <div class="hero-card-top">
+            <div class="eyebrow">Current direction / 01</div>
+            <div class="hero-card-symbol" aria-hidden="true">⌁↗</div>
+          </div>
+          <div class="hero-card-bottom">
+            <div class="hero-card-title">From components to systems</div>
+            <div class="hero-card-caption">MECHANICAL · ELECTRICAL · AUTONOMY</div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<main class="wrap">
+    <div class="focus-strip">
+      <div class="container focus-grid">
+        <div class="focus-item"><strong>Robotics hardware</strong><span>Mechanisms, actuation &amp; integration</span></div>
+        <div class="focus-item"><strong>Electrical engineering</strong><span>Electronics, sensors &amp; embedded systems</span></div>
+        <div class="focus-item"><strong>Physical prototyping</strong><span>CAD, fabrication &amp; experimentation</span></div>
+      </div>
+    </div>
 
- <section id="about" class="hero">
-  <div>
-   <h1>Welcome</h1>
-   <p class="role">Electrical engineering</p>
-   <p>This site is under construction. Education, experience, news and research publications will appear here soon.</p>
-  </div>
-  <div class="avatar" aria-hidden="true">⚡</div>
- </section>
+    <section class="content-section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div><div class="eyebrow">01 / About</div><h2>A practical approach<br>to engineering.</h2></div>
+          <p class="section-intro">Curiosity is useful. Building, testing and learning from the result is where progress happens.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I’m studying Electrical and Electronic Engineering at the University of Edinburgh, where I’m developing a foundation in electrical systems and engineering principles.</p>
+            <p>My interests sit at the intersection of mechanical design and electronics. I’m particularly drawn to robotics that interact with the physical world: compact mechanisms, mobile platforms, creative actuation and thoughtfully integrated hardware.</p>
+            <p>This portfolio is a record of projects, experiments and ideas as they develop. More technical details and results will be added as work is completed.</p>
+          </div>
+          <div class="principles">
+            <div class="principle"><span class="principle-number">01</span><div><strong>Start with the physical problem</strong><span>Understand constraints before choosing components.</span></div></div>
+            <div class="principle"><span class="principle-number">02</span><div><strong>Prototype with purpose</strong><span>Build to answer a clear engineering question.</span></div></div>
+            <div class="principle"><span class="principle-number">03</span><div><strong>Iterate through evidence</strong><span>Measure, refine and document what works.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
- <section id="news">
-  <h2>News</h2>
-  <p class="empty">No news yet.</p>
- </section>
+    <section class="content-section" id="interests">
+      <div class="container">
+        <div class="section-heading">
+          <div><div class="eyebrow">02 / Areas of interest</div><h2>Where I focus.</h2></div>
+          <p class="section-intro">A growing set of technical interests across the design and development of robotic systems.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-top"><span class="card-index">A / 01</span><span class="tag">MECHANICAL</span></div><h3>Mechanisms &amp; actuation</h3><p>Compact transmissions, compliant structures, jumping mechanisms and practical actuator integration.</p><div class="card-foot">DESIGN · MOTION · STRUCTURE</div></article>
+          <article class="card"><div class="card-top"><span class="card-index">A / 02</span><span class="tag">ELECTRONICS</span></div><h3>Embedded hardware</h3><p>Microcontrollers, power systems, sensing and the electronics that make physical prototypes work.</p><div class="card-foot">CIRCUITS · SENSORS · POWER</div></article>
+          <article class="card"><div class="card-top"><span class="card-index">A / 03</span><span class="tag">ROBOTICS</span></div><h3>Mobile &amp; autonomous robots</h3><p>Small robotic platforms, locomotion, perception hardware and system-level integration.</p><div class="card-foot">MOBILITY · PERCEPTION · SYSTEMS</div></article>
+          <article class="card"><div class="card-top"><span class="card-index">A / 04</span><span class="tag">FABRICATION</span></div><h3>CAD &amp; prototyping</h3><p>Mechanical modelling, 3D printing, material choices and rapid physical experimentation.</p><div class="card-foot">CAD · 3D PRINTING · TESTING</div></article>
+        </div>
+      </div>
+    </section>
 
- <section id="education">
-  <h2>Education</h2>
-  <p class="empty">Details coming soon.</p>
- </section>
+    <section class="content-section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div><div class="eyebrow">03 / Selected work</div><h2>Projects &amp; experiments.</h2></div>
+          <p class="section-intro">A space for documented builds, design studies and research. Project entries will be expanded with images, specifications and results.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-top"><span class="card-index">P / 01</span><span class="tag">CONCEPT DEVELOPMENT</span></div><h3>Spherical jumping robot</h3><p>Exploring a compact mobile robot that combines rolling locomotion with a controlled jumping mechanism.</p><div class="card-foot">MECHANICAL DESIGN · ACTUATION</div></article>
+          <article class="card"><div class="card-top"><span class="card-index">P / 02</span><span class="tag">PROTOTYPING</span></div><h3>Embedded control platform</h3><p>Experiments with microcontrollers, power delivery, motor control and sensor integration for small robots.</p><div class="card-foot">ELECTRONICS · EMBEDDED SYSTEMS</div></article>
+        </div>
+      </div>
+    </section>
 
- <section id="work">
-  <h2>Work Experience</h2>
-  <p class="empty">Nothing to show here yet.</p>
- </section>
+    <section class="content-section" id="background">
+      <div class="container">
+        <div class="section-heading">
+          <div><div class="eyebrow">04 / Background</div><h2>Education &amp; development.</h2></div>
+          <p class="section-intro">The foundations behind my engineering interests.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-row">
+            <div class="timeline-date">CURRENT</div>
+            <div class="timeline-body"><h3>University of Edinburgh</h3><p>Electrical and Electronic Engineering · Undergraduate study</p></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-date">ONGOING</div>
+            <div class="timeline-body"><h3>Independent engineering projects</h3><p>Exploring robotics hardware, CAD, embedded electronics and hands-on prototyping.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
- <section id="publications">
-  <h2>Publications</h2>
-  <p class="empty">No publications yet.</p>
- </section>
+    <section class="container" id="contact">
+      <div class="contact-panel">
+        <div>
+          <div class="eyebrow">05 / Contact</div>
+          <h2>Have a project or idea in mind?</h2>
+          <p>I’m interested in thoughtful conversations about engineering, robotics and collaborative projects.</p>
+        </div>
+        <a class="button primary" href="mailto:">Get in touch ↗</a>
+      </div>
+    </section>
+  </main>
 
-</main>
-
-<footer>
- <div class="wrap">
-  <span>© 2026</span>
- </div>
-</footer>
-
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> LIOU LI</span>
+      <span>ENGINEER THE DETAILS. BUILD THE BIG PICTURE.</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
