@@ -3,185 +3,127 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#050609">
-  <meta name="description" content="Liou Li">
-  <title>Liou Li</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Liou Li — Research Profile">
+  <title>Liou Li — Research Profile</title>
   <style>
-    :root { --black:#050609; --white:#f1f2f4; --cyan:#a9f3f4; --sans:"Manrope",Arial,sans-serif; }
-    * { box-sizing:border-box; }
-    html, body { width:100%; min-height:100%; margin:0; }
-    body { min-height:100svh; overflow:hidden; background:var(--black); color:var(--white); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
-    .hero { height:100svh; min-height:560px; position:relative; isolation:isolate; overflow:hidden; background:#050609; }
-    .art { position:absolute; inset:0; z-index:-2; transition:transform .4s ease-out; }
-    .art svg { width:100%; height:100%; display:block; }
-    .hero::after {
-      content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
-      background:linear-gradient(90deg,rgba(5,6,9,.72) 0%,rgba(5,6,9,.22) 42%,transparent 72%),
-                 linear-gradient(0deg,rgba(5,6,9,.28),transparent 32%);
+    :root {
+      --paper: #fff;
+      --ink: #202832;
+      --body: #45515e;
+      --muted: #77818c;
+      --line: #e5e9ed;
+      --accent: #294c70;
+      --accent-soft: #f2f6f9;
+      --max: 1080px;
     }
-    .name {
-      position:absolute; left:clamp(28px,6vw,96px); bottom:clamp(42px,9vh,100px);
-      margin:0; color:var(--white); font-size:clamp(48px,8vw,112px);
-      line-height:.98; font-weight:400; letter-spacing:-.065em;
-      text-shadow:0 2px 30px rgba(0,0,0,.24);
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font: 15px/1.75 Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    .veil { animation:veil 14s ease-in-out infinite alternate; transform-origin:50% 50%; }
-    .flow { animation:flow 22s ease-in-out infinite alternate; transform-origin:58% 50%; }
-    .flow-reverse { animation:flowReverse 27s ease-in-out infinite alternate; transform-origin:58% 50%; }
-    .mesh-drift { animation:mesh 38s linear infinite; }
-    @keyframes veil { 0%{transform:translate3d(-1%,1%,0) scale(1)} 100%{transform:translate3d(1%,-1%,0) scale(1.055)} }
-    @keyframes flow { 0%{transform:translate3d(-1%,1%,0) rotate(-1deg)} 100%{transform:translate3d(1%,-1%,0) rotate(1deg)} }
-    @keyframes flowReverse { 0%{transform:translate3d(1%,-1%,0) rotate(1deg)} 100%{transform:translate3d(-1%,1%,0) rotate(-1deg)} }
-    @keyframes mesh { to { stroke-dashoffset:-240 } }
-    @media(max-width:650px) {
-      .art svg { width:155%; max-width:none; transform:translateX(-13%); }
-      .hero::after { background:linear-gradient(90deg,rgba(5,6,9,.55),transparent 85%),linear-gradient(0deg,rgba(5,6,9,.42),transparent 42%); }
-      .name { font-size:clamp(46px,13vw,76px); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .container { width: min(var(--max), calc(100% - 52px)); margin: 0 auto; }
+    .site-header { border-bottom: 1px solid var(--line); background: #fff; }
+    .header-inner {
+      min-height: 78px; display: flex; align-items: center;
+      justify-content: space-between; gap: 28px;
     }
-    @media(prefers-reduced-motion:reduce) {
-      .veil,.flow,.flow-reverse,.mesh-drift { animation:none!important; }
-      .art { transition:none; }
+    .site-name { color: var(--ink); font-size: 20px; font-weight: 600; letter-spacing: -.035em; }
+    .nav { display: flex; align-items: center; gap: 27px; }
+    .nav a { color: #596573; font-size: 13px; }
+    .nav a:hover { color: var(--accent); }
+    main { padding: 64px 0 100px; }
+    .profile-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 76px; }
+    .sidebar { padding-top: 5px; }
+    .sidebar-name { margin: 0 0 7px; font-size: 23px; line-height: 1.3; font-weight: 600; letter-spacing: -.04em; }
+    .sidebar-label { margin: 0; color: var(--muted); font-size: 13px; }
+    .sidebar-rule { width: 38px; height: 2px; background: var(--accent); margin: 24px 0; }
+    .sidebar-note { color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .main-column { min-width: 0; }
+    .page-title { margin: 0 0 10px; font-size: 31px; line-height: 1.25; font-weight: 600; letter-spacing: -.045em; }
+    .page-intro { margin: 0; max-width: 680px; color: var(--body); font-size: 15px; }
+    .section { margin-top: 55px; }
+    .section-heading {
+      margin: 0 0 17px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink); font-size: 19px; font-weight: 600; letter-spacing: -.025em;
     }
+    .empty { margin: 0; color: var(--muted); font-size: 13px; }
+    .entry-list { list-style: none; padding: 0; margin: 0; }
+    .entry-list li { padding: 13px 0; border-bottom: 1px solid #eef0f2; }
+    .entry-list li:last-child { border-bottom: 0; }
+    .section:target .section-heading { color: var(--accent); }
+    footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .footer-inner { min-height: 65px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 36px, var(--max)); }
+      .header-inner { min-height: 0; padding: 18px 0 13px; align-items: flex-start; flex-direction: column; gap: 13px; }
+      .nav { width: 100%; gap: 21px; overflow-x: auto; padding-bottom: 2px; }
+      .nav a { white-space: nowrap; font-size: 12px; }
+      main { padding: 43px 0 72px; }
+      .profile-layout { grid-template-columns: 1fr; gap: 35px; }
+      .sidebar { padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+      .sidebar-rule { margin: 15px 0; }
+      .section { margin-top: 43px; }
+      .page-title { font-size: 28px; }
+      .footer-inner { min-height: 58px; align-items: flex-start; justify-content: center; flex-direction: column; gap: 2px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
-  <main class="hero">
-    <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="halo" cx="66%" cy="48%" r="60%">
-              <stop offset="0" stop-color="#16394a" stop-opacity=".72"/>
-              <stop offset=".48" stop-color="#0a1725" stop-opacity=".34"/>
-              <stop offset="1" stop-color="#050609" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="warm" x1="12%" y1="92%" x2="92%" y2="15%">
-              <stop offset="0" stop-color="#b52626"/>
-              <stop offset=".22" stop-color="#ef6338"/>
-              <stop offset=".48" stop-color="#ffc28a"/>
-              <stop offset=".66" stop-color="#e8fbf6"/>
-              <stop offset=".82" stop-color="#6bd5e1"/>
-              <stop offset="1" stop-color="#18748e"/>
-            </linearGradient>
-            <linearGradient id="cool" x1="0%" y1="15%" x2="100%" y2="80%">
-              <stop offset="0" stop-color="#073f60" stop-opacity=".14"/>
-              <stop offset=".26" stop-color="#26a9bd" stop-opacity=".82"/>
-              <stop offset=".52" stop-color="#d9fcf8" stop-opacity=".82"/>
-              <stop offset=".75" stop-color="#fc9b67" stop-opacity=".82"/>
-              <stop offset="1" stop-color="#b92f31" stop-opacity=".18"/>
-            </linearGradient>
-            <linearGradient id="silk" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0" stop-color="#e6ffff" stop-opacity=".04"/>
-              <stop offset=".33" stop-color="#c6f8f5" stop-opacity=".8"/>
-              <stop offset=".58" stop-color="#e9f6ec" stop-opacity=".42"/>
-              <stop offset=".8" stop-color="#ffae7e" stop-opacity=".8"/>
-              <stop offset="1" stop-color="#d94333" stop-opacity=".12"/>
-            </linearGradient>
-            <filter id="blur-large" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="42"/>
-            </filter>
-            <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="14" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="ripple" x="-15%" y="-20%" width="130%" height="140%">
-              <feTurbulence type="fractalNoise" baseFrequency=".012 .025" numOctaves="2" seed="6" result="noise"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-            <pattern id="filaments" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
-              <path d="M0 0V11" stroke="#effffc" stroke-opacity=".42" stroke-width=".7"/>
-            </pattern>
-            <pattern id="crosshatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(-27)">
-              <path d="M0 0V22" stroke="#f4ffff" stroke-opacity=".24" stroke-width=".7"/>
-            </pattern>
-            <clipPath id="form">
-              <path d="M565 830 C665 670 625 577 770 474 C900 382 1030 420 1077 292 C1120 175 1286 120 1445 184 C1575 235 1612 375 1530 497 C1465 595 1325 567 1269 695 C1217 814 1101 909 943 903 C807 899 686 975 565 830Z"/>
-            </clipPath>
-            <clipPath id="ribbonClip">
-              <path d="M550 814 C692 655 643 565 790 468 C955 359 1050 426 1102 297 C1156 160 1301 105 1448 178 C1589 247 1604 379 1515 485 C1434 581 1337 562 1278 685 C1215 815 1099 886 949 880 C793 874 680 950 550 814Z"/>
-            </clipPath>
-          </defs>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-name" href="#top">Liou Li</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
 
-          <rect width="1600" height="1000" fill="#050609"/>
-          <rect width="1600" height="1000" fill="url(#halo)"/>
-          <g class="veil">
-            <ellipse cx="1110" cy="500" rx="370" ry="230" fill="#0c92aa" opacity=".23" filter="url(#blur-large)"/>
-            <ellipse cx="1250" cy="410" rx="260" ry="205" fill="#f05536" opacity=".2" filter="url(#blur-large)"/>
-            <ellipse cx="1010" cy="690" rx="290" ry="135" fill="#1a9db7" opacity=".18" filter="url(#blur-large)"/>
-          </g>
+  <main class="container" id="top">
+    <div class="profile-layout">
+      <aside class="sidebar" aria-label="Profile">
+        <h1 class="sidebar-name">Liou Li</h1>
+        <p class="sidebar-label">Research Profile</p>
+        <div class="sidebar-rule"></div>
+        <p class="sidebar-note">Academic profile</p>
+      </aside>
 
-          <g class="flow">
-            <path d="M590 830 C695 680 640 568 783 475 C920 385 1031 426 1087 293 C1134 181 1282 126 1436 186 C1572 239 1602 370 1524 491" fill="none" stroke="#eb5337" stroke-opacity=".38" stroke-width="124" stroke-linecap="round" filter="url(#glow)"/>
-            <path d="M565 820 C693 659 648 575 787 480 C927 385 1037 430 1094 299 C1147 176 1281 128 1440 191 C1570 244 1601 377 1518 491" fill="none" stroke="url(#warm)" stroke-width="73" stroke-linecap="round" filter="url(#ripple)"/>
-            <path d="M592 822 C713 680 663 589 800 494 C926 406 1041 447 1113 319 C1171 214 1290 165 1434 217 C1543 257 1580 370 1500 474" fill="none" stroke="url(#silk)" stroke-width="31" stroke-linecap="round" opacity=".78"/>
-            <path d="M606 823 C724 685 679 601 815 511 C938 428 1051 462 1127 342 C1197 233 1310 188 1437 235 C1532 271 1562 368 1488 460" fill="none" stroke="#f8ffff" stroke-opacity=".6" stroke-width="2.3"/>
-          </g>
+      <div class="main-column">
+        <h2 class="page-title">Research Profile</h2>
+        <p class="page-intro">A research profile and record of academic work.</p>
 
-          <g class="flow-reverse">
-            <path d="M703 931 C785 755 741 661 895 576 C1042 494 1148 563 1212 433 C1261 331 1396 297 1510 357 C1614 411 1623 535 1541 629 C1455 728 1340 700 1271 814" fill="none" stroke="url(#cool)" stroke-width="104" stroke-linecap="round" opacity=".72" filter="url(#ripple)"/>
-            <path d="M697 936 C787 771 758 678 905 590 C1045 507 1162 569 1226 444 C1289 323 1400 310 1514 371 C1614 425 1606 538 1532 619 C1454 705 1351 706 1289 820" fill="none" stroke="#eafffd" stroke-width="27" stroke-opacity=".38" stroke-linecap="round"/>
-            <path d="M720 943 C808 780 779 694 925 614 C1065 537 1177 586 1248 467 C1318 349 1417 339 1514 392 C1591 435 1590 527 1522 605" fill="none" stroke="#a1f2f2" stroke-width="1.7" stroke-opacity=".7"/>
-          </g>
+        <section class="section" id="research">
+          <h3 class="section-heading">Research</h3>
+          <p class="empty">Research information has not been added.</p>
+        </section>
 
-          <g clip-path="url(#ribbonClip)" class="mesh-drift">
-            <rect x="520" y="120" width="1080" height="850" fill="url(#filaments)" opacity=".65"/>
-            <rect x="520" y="120" width="1080" height="850" fill="url(#crosshatch)" opacity=".47"/>
-            <g fill="none" stroke="#e6fffd" stroke-width="1.1" stroke-opacity=".38">
-              <path d="M520 300 C760 180 790 570 1010 454 S1290 60 1620 250"/>
-              <path d="M500 330 C760 215 810 590 1030 472 S1325 84 1640 280"/>
-              <path d="M490 360 C760 250 835 614 1050 492 S1360 108 1660 310"/>
-              <path d="M480 390 C760 280 850 638 1070 512 S1390 132 1675 340"/>
-              <path d="M470 420 C760 315 868 664 1090 534 S1420 156 1690 370"/>
-              <path d="M460 450 C760 350 885 690 1110 557 S1450 180 1700 400"/>
-              <path d="M450 480 C760 385 905 716 1130 580 S1480 204 1710 430"/>
-              <path d="M440 510 C760 420 930 742 1150 602 S1510 228 1720 460"/>
-              <path d="M430 540 C760 455 950 768 1170 625 S1540 252 1730 490"/>
-              <path d="M420 570 C760 490 970 794 1190 648 S1570 276 1740 520"/>
-              <path d="M420 600 C750 525 985 820 1210 670 S1590 300 1750 550"/>
-              <path d="M430 630 C745 560 1000 846 1230 692 S1600 324 1760 580"/>
-              <path d="M440 660 C740 595 1020 872 1250 714 S1610 348 1770 610"/>
-              <path d="M450 690 C740 630 1040 898 1270 736 S1620 372 1780 640"/>
-            </g>
-            <g fill="none" stroke="#ffc59a" stroke-width="1" stroke-opacity=".34">
-              <path d="M690 100 C850 300 790 450 750 660 S810 930 980 1050"/>
-              <path d="M730 90 C890 290 830 450 790 660 S850 930 1020 1050"/>
-              <path d="M770 80 C930 280 870 450 830 660 S890 930 1060 1050"/>
-              <path d="M810 70 C970 270 910 450 870 660 S930 930 1100 1050"/>
-              <path d="M850 60 C1010 260 950 450 910 660 S970 930 1140 1050"/>
-              <path d="M890 50 C1050 250 990 450 950 660 S1010 930 1180 1050"/>
-              <path d="M930 40 C1090 240 1030 450 990 660 S1050 930 1220 1050"/>
-              <path d="M970 30 C1130 230 1070 450 1030 660 S1090 930 1260 1050"/>
-              <path d="M1010 20 C1170 220 1110 450 1070 660 S1130 930 1300 1050"/>
-              <path d="M1050 10 C1210 210 1150 450 1110 660 S1170 930 1340 1050"/>
-            </g>
-          </g>
+        <section class="section" id="publications">
+          <h3 class="section-heading">Publications</h3>
+          <p class="empty">No publications listed.</p>
+        </section>
 
-          <g fill="none" stroke-linecap="round">
-            <path d="M890 735 C1020 638 1121 638 1221 507 C1320 376 1420 365 1510 411" stroke="#f5ffff" stroke-width="2" stroke-opacity=".88" filter="url(#glow)"/>
-            <path d="M855 759 C995 660 1114 682 1230 548 C1337 424 1430 402 1525 454" stroke="#7de9f0" stroke-width="1.4" stroke-opacity=".7"/>
-            <path d="M850 785 C997 703 1116 721 1245 590 C1353 481 1455 470 1538 516" stroke="#ffac82" stroke-width="1.4" stroke-opacity=".66"/>
-          </g>
-
-          <g fill="#e8ffff">
-            <circle cx="1081" cy="293" r="2.4" opacity=".9"/><circle cx="1230" cy="545" r="2" opacity=".75"/>
-            <circle cx="1434" cy="216" r="2.8" opacity=".9"/><circle cx="1504" cy="474" r="1.8" opacity=".8"/>
-            <circle cx="966" cy="745" r="1.7" opacity=".72"/><circle cx="1328" cy="708" r="2" opacity=".8"/>
-          </g>
-        </svg>
+        <section class="section" id="projects">
+          <h3 class="section-heading">Projects</h3>
+          <p class="empty">No projects listed.</p>
+        </section>
       </div>
-    <h1 class="name">Liou Li</h1>
+    </div>
   </main>
-  <script>
-    const art = document.querySelector(".art");
-    if (art && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      window.addEventListener("pointermove", (event) => {
-        const x = (event.clientX / window.innerWidth - .5) * 8;
-        const y = (event.clientY / window.innerHeight - .5) * 8;
-        art.style.transform = "translate3d(" + x + "px," + y + "px,0)";
-      }, { passive: true });
-    }
-  </script>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Liou Li</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
 </body>
 </html>
