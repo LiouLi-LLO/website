@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Your Name] | Electrical Engineering</title>
+<meta name="description" content="Personal website of [Your Name], electrical engineering student. About, news, education, work and publications.">
+<style>
+:root{--bg:#fbfbf9;--card:#fff;--text:#1c2430;--muted:#5b6675;--line:#e4e7ec;--accent:#1f4e79;--soft:#eef3f8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px;color-scheme:light}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:5;background:rgba(251,251,249,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:60px}
+.brand{font-weight:650;color:var(--text);white-space:nowrap}
+nav{display:flex;gap:20px;overflow-x:auto;font-size:15px}
+nav a{color:var(--muted);white-space:nowrap}
+nav a:hover{color:var(--accent);text-decoration:none}
+section{padding:48px 0 8px}
+h2{font-size:14px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hero{display:grid;grid-template-columns:1fr 168px;gap:36px;align-items:center;padding-top:56px}
+h1{font-size:38px;line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
+.role{color:var(--muted);margin:0 0 18px}
+.avatar{width:168px;height:168px;border-radius:50%;background:var(--soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:600;color:var(--accent);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px;padding:0;list-style:none}
+.chips li{background:var(--soft);color:var(--accent);font-size:14px;padding:3px 12px;border-radius:999px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:8px 18px;border:1px solid var(--accent);border-radius:6px;font-size:15px}
+.btn.primary{background:var(--accent);color:#fff}
+.btn:hover{text-decoration:none;opacity:.88}
+.row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:12px 0}
+.row+.row{border-top:1px solid var(--line)}
+.date{color:var(--muted);font-size:15px}
+.item h3{margin:0;font-size:17px}
+.item p{margin:2px 0 0;color:var(--muted);font-size:15.5px}
+.empty{background:var(--card);border:1px dashed #cdd3db;border-radius:8px;padding:18px 20px;color:var(--muted);margin:0}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media(max-width:640px){
+ body{font-size:16px}
+ .hero{grid-template-columns:1fr;gap:24px}
+ .avatar{order:-1;width:120px;height:120px;font-size:36px}
+ h1{font-size:30px}
+ .row{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap">
+  <a class="brand" href="#about">[Your Name]</a>
+  <nav aria-label="Main">
+   <a href="#about">About</a>
+   <a href="#news">News</a>
+   <a href="#education">Education</a>
+   <a href="#work">Work</a>
+   <a href="#publications">Publications</a>
+   <a href="#contact">Contact</a>
+  </nav>
+ </div>
+</header>
+
+<main class="wrap">
+
+ <!-- ABOUT: replace [Your Name], [University] and the bio. -->
+ <section id="about" class="hero">
+  <div>
+   <h1>[Your Name]</h1>
+   <p class="role">Electrical Engineering student · [University]</p>
+   <p>I’m an electrical engineering student interested in turning ideas into working systems. This site collects my education, experience, news and, in time, my research publications.</p>
+   <!-- Edit these interests to match yours -->
+   <ul class="chips" aria-label="Interests">
+    <li>Circuits &amp; Systems</li>
+    <li>Signal Processing</li>
+    <li>Embedded Systems</li>
+   </ul>
+   <div class="links">
+    <a class="btn primary" href="https://www.linkedin.com/in/liouli" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="mailto:your.email@example.com">Email me</a>
+   </div>
+  </div>
+  <!-- To use a photo: save it as photo.jpg next to this file and replace the initials with <img src="photo.jpg" alt="Portrait of [Your Name]"> -->
+  <div class="avatar" aria-hidden="true">YN</div>
+ </section>
+
+ <!-- NEWS: copy a whole <div class="row">…</div> block to add an item. Newest first. -->
+ <section id="news">
+  <h2>News</h2>
+  <div class="row"><div class="date">Nov 2026</div><div class="item"><p style="color:var(--text)">Launched my personal website.</p></div></div>
+  <div class="row"><div class="date">[Month Year]</div><div class="item"><p style="color:var(--text)">[Add a project, award, course, talk or internship here.]</p></div></div>
+ </section>
+
+ <section id="education">
+  <h2>Education</h2>
+  <div class="row">
+   <div class="date">[20XX – 20XX]</div>
+   <div class="item"><h3>B.Sc. in Electrical Engineering</h3><p>[University], [City, Country]</p><p>[Optional: relevant coursework, thesis topic, honours.]</p></div>
+  </div>
+ </section>
+
+ <section id="work">
+  <h2>Work Experience</h2>
+  <p class="empty">Nothing to show here yet. Experience will be added soon.</p>
+  <!-- When ready, replace the line above with:
+  <div class="row"><div class="date">[Jun 2027 – Aug 2027]</div><div class="item"><h3>[Role]</h3><p>[Company]</p><p>[One line on what you did.]</p></div></div> -->
+ </section>
+
+ <section id="publications">
+  <h2>Publications</h2>
+  <p class="empty">No publications yet. I’m working towards my first, so check back soon.</p>
+  <!-- When ready, replace the line above with:
+  <div class="row"><div class="date">[2027]</div><div class="item"><h3>[Paper title]</h3><p>[Authors, Venue]</p><p><a href="[link]">PDF</a></p></div></div> -->
+ </section>
+
+</main>
+
+<footer id="contact">
+ <div class="wrap">
+  <span>© 2026 [Your Name]</span>
+  <span><a href="mailto:your.email@example.com">your.email@example.com</a> · <a href="https://www.linkedin.com/in/liouli" target="_blank" rel="noopener">LinkedIn</a></span>
+ </div>
+</footer>
+
+</body>
+</html>
