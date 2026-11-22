@@ -4,125 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050609">
-  <meta name="description" content="Liou Li — exploring robotics, engineering and creative technology.">
-  <title>Liou Li — Moving Matter</title>
+  <meta name="description" content="Liou Li">
+  <title>Liou Li</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --black:#050609; --white:#f1f2f4; --muted:#9ba3ae;
-      --line:rgba(235,242,249,.15); --cyan:#a9f3f4; --sans:"Manrope",Arial,sans-serif;
-      --serif:"Playfair Display",Georgia,serif; --mono:"DM Mono",monospace;
+    :root { --black:#050609; --white:#f1f2f4; --cyan:#a9f3f4; --sans:"Manrope",Arial,sans-serif; }
+    * { box-sizing:border-box; }
+    html, body { width:100%; min-height:100%; margin:0; }
+    body { min-height:100svh; overflow:hidden; background:var(--black); color:var(--white); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+    .hero { height:100svh; min-height:560px; position:relative; isolation:isolate; overflow:hidden; background:#050609; }
+    .art { position:absolute; inset:0; z-index:-2; transition:transform .4s ease-out; }
+    .art svg { width:100%; height:100%; display:block; }
+    .hero::after {
+      content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+      background:linear-gradient(90deg,rgba(5,6,9,.72) 0%,rgba(5,6,9,.22) 42%,transparent 72%),
+                 linear-gradient(0deg,rgba(5,6,9,.28),transparent 32%);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:86px}
-    body{margin:0;background:var(--black);color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    a:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}
-    .mono{font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase}
-    .shell{width:min(1380px,calc(100% - 80px));margin:auto}
-    .header{position:absolute;z-index:10;inset:0 0 auto;border-bottom:1px solid rgba(255,255,255,.13)}
-    .header-inner{width:min(1460px,calc(100% - 80px));height:82px;margin:auto;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-    .brand-mark{width:29px;height:29px;border:1px solid rgba(240,248,250,.66);border-radius:50%;display:grid;place-items:center;font:italic 16px var(--serif)}
-    .nav{display:flex;gap:35px;align-items:center}
-    .nav a{font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(241,246,249,.72);transition:color .2s}
-    .nav a:hover,.nav .nav-accent{color:var(--cyan)}
-    .hero{height:100svh;min-height:720px;position:relative;isolation:isolate;overflow:hidden;background:#050609}
-    .art{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
-    .art svg{width:100%;height:100%;display:block}
-    .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#050609 0%,rgba(5,6,9,.94) 19%,rgba(5,6,9,.72) 35%,rgba(5,6,9,.06) 72%),linear-gradient(0deg,rgba(5,6,9,.78),transparent 23%,transparent 78%,rgba(5,6,9,.3))}
-    .hero-content{height:100%;width:min(1460px,calc(100% - 80px));margin:auto;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;position:relative;z-index:2;padding-top:66px}
-    .kicker{display:flex;align-items:center;gap:12px;color:rgba(226,238,244,.68)}
-    .signal{height:6px;width:6px;background:#b1f4e3;border-radius:50%;box-shadow:0 0 13px #9debdc}
-    h1{font:500 clamp(65px,8.5vw,118px)/.96 var(--serif);letter-spacing:-.055em;margin:31px 0 24px;max-width:760px}
-    h1 em{font-weight:500;color:#b4f2ef}
-    .hero-copy{max-width:405px;color:rgba(229,237,243,.76);font-size:14px;line-height:1.95;margin:0}
-    .actions{display:flex;align-items:center;gap:27px;margin-top:36px}
-    .enter{display:inline-flex;align-items:center;gap:18px;padding:14px 18px;border:1px solid rgba(230,243,247,.55);font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;transition:background .25s,border-color .25s}
-    .enter span{color:var(--cyan);font-size:15px}
-    .enter:hover{background:rgba(168,236,240,.08);border-color:var(--cyan)}
-    .social{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(229,237,243,.67)}
-    .social:hover{color:var(--cyan)}
-    .hero-foot{position:absolute;bottom:30px;left:0;right:0;width:min(1460px,calc(100% - 80px));margin:auto;display:flex;justify-content:space-between;gap:20px;color:rgba(220,231,238,.55)}
-    .hero-foot .scroll{display:flex;align-items:center;gap:12px}
-    .scroll-line{width:40px;height:1px;background:var(--cyan);opacity:.8}
-    .section{padding:125px 0;border-top:1px solid var(--line)}
-    .section-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:12%;align-items:start}
-    .eyebrow{color:var(--cyan);margin-bottom:22px}
-    h2{font:500 clamp(43px,5.6vw,74px)/1.03 var(--serif);letter-spacing:-.035em;margin:0}
-    h2 em{color:#a9e7e8;font-weight:500}
-    .copy{max-width:610px;padding-top:10px}
-    .copy p{color:#aeb8c2;font-size:14px;line-height:2.05;margin:0 0 19px}
-    .copy p.lead{font:500 24px/1.55 var(--serif);color:#e5ebef}
-    .interests{padding-top:0}
-    .interests-top{display:flex;justify-content:space-between;align-items:end;gap:45px;margin-bottom:46px}
-    .interests-top p{max-width:330px;margin:0;color:var(--muted);font-size:12px;line-height:1.9}
-    .list{border-top:1px solid var(--line)}
-    .item{display:grid;grid-template-columns:65px 1fr minmax(220px,.65fr);gap:24px;align-items:baseline;padding:25px 0;border-bottom:1px solid var(--line)}
-    .num{color:var(--cyan)}
-    .item h3{font:500 29px/1.2 var(--serif);margin:0}
-    .item p{margin:0;color:var(--muted);font-size:12px;line-height:1.85}
-    .end{padding:110px 0 100px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:end;gap:35px}
-    .end h2{font-size:clamp(46px,6.4vw,82px)}
-    .end p{max-width:255px;margin:0;color:var(--muted);font-size:12px;line-height:1.9}
-    footer{border-top:1px solid var(--line);padding:22px 0 28px;color:#76828e}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px}
-    .footer-inner span,.footer-inner a{font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
-    .footer-inner a:hover{color:var(--cyan)}
-    .veil{animation:veil 14s ease-in-out infinite alternate;transform-origin:50% 50%}
-    .flow{animation:flow 22s ease-in-out infinite alternate;transform-origin:58% 50%}
-    .flow-reverse{animation:flowReverse 27s ease-in-out infinite alternate;transform-origin:58% 50%}
-    .mesh-drift{animation:mesh 38s linear infinite}
-    @keyframes veil{0%{transform:translate3d(-1%,1%,0) scale(1)}100%{transform:translate3d(1%,-1%,0) scale(1.055)}}
-    @keyframes flow{0%{transform:translate3d(-1%,1%,0) rotate(-1deg)}100%{transform:translate3d(1%,-1%,0) rotate(1deg)}}
-    @keyframes flowReverse{0%{transform:translate3d(1%,-1%,0) rotate(1deg)}100%{transform:translate3d(-1%,1%,0) rotate(-1deg)}}
-    @keyframes mesh{to{stroke-dashoffset:-240}}
-    @media(max-width:760px){
-      .shell,.hero-content,.hero-foot{width:calc(100% - 42px)}
-      .header-inner{width:calc(100% - 42px);height:73px}
-      .nav{gap:19px}.nav a{font-size:8px}
-      .hero{min-height:740px}
-      .hero::before{background:linear-gradient(90deg,rgba(5,6,9,.94),rgba(5,6,9,.52) 64%,rgba(5,6,9,.18)),linear-gradient(0deg,rgba(5,6,9,.85),transparent 42%,rgba(5,6,9,.25))}
-      .art svg{width:155%;max-width:none;transform:translateX(-13%)}
-      h1{font-size:clamp(59px,12vw,88px)}
-      .hero-copy{max-width:350px;font-size:13px}
-      .section{padding:86px 0}
-      .section-grid{grid-template-columns:1fr;gap:28px}
-      .copy{padding-top:0}
-      .interests-top{display:block}.interests-top p{margin-top:18px}
-      .item{grid-template-columns:40px 1fr;gap:7px 16px}
-      .item p{grid-column:2}
-      .end{display:block;padding:85px 0 65px}.end p{margin-top:27px}
-      .footer-inner{flex-direction:column;gap:9px}
+    .name {
+      position:absolute; left:clamp(28px,6vw,96px); bottom:clamp(42px,9vh,100px);
+      margin:0; color:var(--white); font-size:clamp(48px,8vw,112px);
+      line-height:.98; font-weight:400; letter-spacing:-.065em;
+      text-shadow:0 2px 30px rgba(0,0,0,.24);
     }
-    @media(max-width:430px){
-      .nav{gap:13px}.nav a{font-size:7px}
-      .brand{font-size:9px}
-      .hero-foot .scroll{font-size:8px}
+    .veil { animation:veil 14s ease-in-out infinite alternate; transform-origin:50% 50%; }
+    .flow { animation:flow 22s ease-in-out infinite alternate; transform-origin:58% 50%; }
+    .flow-reverse { animation:flowReverse 27s ease-in-out infinite alternate; transform-origin:58% 50%; }
+    .mesh-drift { animation:mesh 38s linear infinite; }
+    @keyframes veil { 0%{transform:translate3d(-1%,1%,0) scale(1)} 100%{transform:translate3d(1%,-1%,0) scale(1.055)} }
+    @keyframes flow { 0%{transform:translate3d(-1%,1%,0) rotate(-1deg)} 100%{transform:translate3d(1%,-1%,0) rotate(1deg)} }
+    @keyframes flowReverse { 0%{transform:translate3d(1%,-1%,0) rotate(1deg)} 100%{transform:translate3d(-1%,1%,0) rotate(-1deg)} }
+    @keyframes mesh { to { stroke-dashoffset:-240 } }
+    @media(max-width:650px) {
+      .art svg { width:155%; max-width:none; transform:translateX(-13%); }
+      .hero::after { background:linear-gradient(90deg,rgba(5,6,9,.55),transparent 85%),linear-gradient(0deg,rgba(5,6,9,.42),transparent 42%); }
+      .name { font-size:clamp(46px,13vw,76px); }
     }
-    @media(prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      .veil,.flow,.flow-reverse,.mesh-drift{animation:none!important}
+    @media(prefers-reduced-motion:reduce) {
+      .veil,.flow,.flow-reverse,.mesh-drift { animation:none!important; }
+      .art { transition:none; }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <a class="brand" href="#top"><span class="brand-mark">L</span><span>Liou Li</span></a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#interests">Interests</a>
-        <a class="nav-accent" href="https://github.com/LiouLi-LLO" target="_blank" rel="noreferrer">GitHub ↗</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero" aria-label="Immersive abstract digital artwork">
-      <div class="art" aria-hidden="true">
+  <main class="hero">
+    <div class="art" aria-hidden="true">
         <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="halo" cx="66%" cy="48%" r="60%">
@@ -244,59 +171,9 @@
           </g>
         </svg>
       </div>
-
-      <div class="hero-content">
-        <div class="kicker mono"><span class="signal"></span> Engineering / Robotics / Creative technology</div>
-        <h1>Moving<br><em>matter.</em></h1>
-        <p class="hero-copy">A personal space for exploring the physical side of intelligent machines — where movement, material and technology meet.</p>
-        <div class="actions">
-          <a class="enter" href="#about">Explore <span>↘</span></a>
-          <a class="social" href="https://github.com/LiouLi-LLO" target="_blank" rel="noreferrer">GitHub ↗</a>
-        </div>
-      </div>
-      <div class="hero-foot mono">
-        <span>Liou Li / University of Edinburgh</span>
-        <span class="scroll"><i class="scroll-line"></i> Scroll to discover</span>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="shell section-grid">
-        <div>
-          <div class="eyebrow mono">01 / About</div>
-          <h2>Curiosity<br>becomes <em>form.</em></h2>
-        </div>
-        <div class="copy">
-          <p class="lead">I’m interested in how ideas become physical systems — how a mechanism moves, how a machine senses, and how engineering can create new ways to interact with the world.</p>
-          <p>I study Electrical and Electronic Engineering at the University of Edinburgh. My interests are drawn towards robotics hardware, mechanical design, embedded electronics and creative technology.</p>
-          <p>This website is an open starting point. It is designed to grow with the work, experiments and questions that come next.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section interests" id="interests">
-      <div class="shell">
-        <div class="interests-top">
-          <div><div class="eyebrow mono">02 / Areas of curiosity</div><h2>What draws<br>my <em>attention.</em></h2></div>
-          <p>Not a catalogue of achievements. A small map of the disciplines and questions I want to explore.</p>
-        </div>
-        <div class="list">
-          <article class="item"><span class="num mono">01</span><h3>Movement &amp; mechanisms</h3><p>Locomotion, actuation, kinetic structures and the physics of motion.</p></article>
-          <article class="item"><span class="num mono">02</span><h3>Perception &amp; electronics</h3><p>Sensing, embedded hardware, power systems and responsive machines.</p></article>
-          <article class="item"><span class="num mono">03</span><h3>Creative robotics</h3><p>The space where engineering, physical materials and artistic expression overlap.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="shell end">
-      <div><div class="eyebrow mono">03 / An open beginning</div><h2>More to<br><em>discover.</em></h2></div>
-      <p>A personal site in progress — a place for ideas to take shape, rather than a record of work that has not happened yet.</p>
-    </section>
+    <h1 class="name">Liou Li</h1>
   </main>
-
-  <footer><div class="shell footer-inner mono"><span>© <span id="year">2026</span> Liou Li</span><span>Engineering / Robotics / Creative technology</span><a href="#top">Back to top ↑</a></div></footer>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
     const art = document.querySelector(".art");
     if (art && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.addEventListener("pointermove", (event) => {
